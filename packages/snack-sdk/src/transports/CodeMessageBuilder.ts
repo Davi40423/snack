@@ -191,7 +191,8 @@ export default class CodeMessageBuilder {
     };
     if (typeof navigator !== 'undefined' && navigator.userAgent) {
       const ua = new UAParser(navigator.userAgent).getResult();
-      metadata.webHostName = window.location.hostname;
+      // TODO: web prefix doesn't make sense for server-side use cases
+      metadata.webHostName = typeof window !== 'undefined' ? window.location?.hostname : undefined;
       metadata.webOSArchitecture = ua.cpu.architecture;
       metadata.webOSFamily = ua.os.name;
       metadata.webOSVersion = ua.os.version;
