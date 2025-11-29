@@ -1,0 +1,1 @@
+npx expo build:android{"detail":"File stream access denied."}
